@@ -7,6 +7,9 @@ from raw data to a model running in production and being maintained over time.
 
 Most beginners only know steps 4 and 5. This module covers all 8.
 
+<img width="732" height="167" alt="image" src="https://github.com/user-attachments/assets/3300bfdc-efce-44e6-b476-83e1801d1231" />
+
+
 ## The 8 Stages
 
 ### 1. Data Collection
