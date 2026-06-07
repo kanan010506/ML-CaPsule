@@ -25,16 +25,16 @@ This app gives users a mobile-first overview of ML-CaPsule, its learning approac
 
 ```text
 ML_Capsule_Cross_Platform_App/
-├── android/
-├── ios/
-├── lib/
-│   └── main.dart
-├── test/
-│   └── widget_test.dart
-├── release/
-│   └── ml_capsule_app_v1.apk
-├── pubspec.yaml
-└── README.md
+|-- android/
+|-- ios/
+|-- lib/
+|   |-- main.dart
+|-- test/
+|   |-- widget_test.dart
+|-- release/
+|   |-- ml_capsule_app_v1.apk
+|-- pubspec.yaml
+|-- README.md
 ```
 
 ## Getting Started
