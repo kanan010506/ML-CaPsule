@@ -193,7 +193,7 @@ The process of selecting relevant features for use in a model to increase accura
 <td align="center">27.</td>
 <td align="center"><a href="https://github.com/Niketkumardheeryan/ML-CaPsule/tree/main/Projects/Classification%20Algorithms">Classification Algorithms</a></td>
 <td align="center">28.</td>
-<td align="center"><a href="https://github.com/Niketkumardheeryan/ML-CaPsule/tree/main/Projects/Cloud%20Details">Cloud Details</a></td>
+<td align="center"><a href="https://github.com/Niketkumardheeryan/ML-CaPsule/tree/master/Cloud%20Details">Cloud Details</a></td>
 </tr>
 <tr align="center">
 <td align="center">29.</td>
