@@ -1,14 +1,13 @@
-import pathlib
+from pathlib import Path
 import re
 
+ROOT_PATH = Path(__file__).parent.resolve()
 
-ROOT_PATH = pathlib.Path(__file__).parent.resolve()
-
-
-EXCLUDED_FILES = {
+EXCLUDED_NAMES = {
     ".github",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING_GUIDELINES.md",
+    ".github/workflows",
     "build_readme.py",
     "requirements.txt",
     "README.md",
@@ -41,24 +40,29 @@ def replace_chunk(content, marker, chunk, inline=False):
 def extract_file_names():
     temp = []
 
-    for item in ROOT_PATH.iterdir():
-
-        if item.name in EXCLUDED_FILES:
+    for path in sorted(ROOT_PATH.iterdir(), key=lambda item: item.name.casefold()):
+        if not path.is_dir():
             continue
 
-        temp.append({
-            "fname": item.name,
-            "furl": item.name
-        })
+        if path.name in EXCLUDED_NAMES or path.name.startswith("."):
+            continue
 
-    return sorted(temp, key=lambda x: x["fname"].lower())
+        temp.append(
+            {
+                "fname": path.name,
+                "furl": path.name,
+            }
+        )
+
+    return temp
 
 
 if __name__ == "__main__":
 
     readme = ROOT_PATH / "README.md"
 
-    readme_contents = readme.read_text(encoding="utf-8")
+    with open(readme, "r", encoding="utf-8") as readme_file:
+        readme_contents = readme_file.read()
 
     file_names = extract_file_names()
 
@@ -69,9 +73,10 @@ if __name__ == "__main__":
     updated_content = replace_chunk(
         readme_contents,
         "Projects",
-        "| Content List |\n| --------------- |\n" + file_md
+        "| Content List |\n| --------------- |\n" + file_md,
     )
 
-    readme.write_text(updated_content, encoding="utf-8")
+    with open(readme, "w", encoding="utf-8") as readme_file:
+        readme_file.write(updated_content)
 
     print("README.md updated successfully.")
